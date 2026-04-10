@@ -54,3 +54,20 @@ class PasswordChange(BaseModel):
     """Схема для смены пароля"""
     current_password: str
     new_password: str = Field(..., min_length=6)
+
+
+class UserProfileCreate(BaseModel):
+    """Схема для создания/обновления профиля пользователя"""
+    date_of_birth: Optional[datetime] = None
+
+
+class UserProfileResponse(BaseModel):
+    """Схема ответа профиля пользователя"""
+    id: int
+    user_id: int
+    date_of_birth: Optional[datetime] = None
+    created_at: datetime
+    updated_at: datetime
+
+    class Config:
+        from_attributes = True

@@ -118,24 +118,6 @@ class TransactionCRUD:
         return result.scalars().all()
 
     @staticmethod
-    async def get_daily_transactions(
-        db: AsyncSession,
-        user_id: int,
-        date: datetime,
-    ) -> List[Transaction]:
-        """Получить транзакции за определенный день"""
-        start_of_day = date.replace(hour=0, minute=0, second=0, microsecond=0)
-        end_of_day = date.replace(hour=23, minute=59, second=59)
-
-        return await TransactionCRUD.get_user_transactions(
-            db=db,
-            user_id=user_id,
-            start_date=start_of_day,
-            end_date=end_of_day,
-            limit=1000,
-        )
-
-    @staticmethod
     async def update(
         db: AsyncSession,
         transaction_id: int,

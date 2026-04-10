@@ -11,7 +11,7 @@ from app.api.schemas.finance import (
     CategoryCreate,
     CategoryUpdate,
 )
-from app.core.db.models.finance import Budget, Category, CategoryType, TransactionType
+from app.core.db.models.finance import Budget, Category, CategoryType
 
 
 class CategoryCRUD:

@@ -22,7 +22,6 @@ htmlcov/
 
 # IDE
 .vscode/
-../../../../.claude/
 .idea/
 
 # Logs

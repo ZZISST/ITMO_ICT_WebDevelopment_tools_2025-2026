@@ -2,7 +2,6 @@
 Схемы для API
 """
 
-# Импорт пользовательских схем
 from .user import (
     UserBase,
     UserCreate,
@@ -12,12 +11,11 @@ from .user import (
     TokenData,
     UserUpdate,
     PasswordChange,
+    UserProfileCreate,
+    UserProfileResponse,
 )
-# flake8: noqa
 
 from .finance import (
-    AnalysisRequest,
-    AnalysisResponse,
     AnalysisStatus,
     BudgetBase,
     BudgetCreate,
@@ -35,22 +33,12 @@ from .finance import (
     FinancialGoalCreate,
     FinancialGoalResponse,
     FinancialGoalUpdate,
+    PlannedVsActualSummary,
     TransactionBase,
     TransactionCreate,
     TransactionResponse,
     TransactionType,
     TransactionUpdate,
-)
-
-from .user import (
-    PasswordChange,
-    Token,
-    TokenData,
-    UserBase,
-    UserCreate,
-    UserLogin,
-    UserResponse,
-    UserUpdate,
 )
 
 __all__ = [
@@ -69,6 +57,7 @@ __all__ = [
     "TransactionCreate",
     "TransactionUpdate",
     "TransactionResponse",
+    "PlannedVsActualSummary",
     "FinancialGoalBase",
     "FinancialGoalCreate",
     "FinancialGoalUpdate",
@@ -76,8 +65,6 @@ __all__ = [
     "FinancialAnalysisBase",
     "FinancialAnalysisCreate",
     "FinancialAnalysisResponse",
-    "AnalysisRequest",
-    "AnalysisResponse",
     "Token",
     "TokenData",
     "UserBase",
@@ -86,4 +73,6 @@ __all__ = [
     "UserResponse",
     "UserUpdate",
     "PasswordChange",
+    "UserProfileCreate",
+    "UserProfileResponse",
 ]

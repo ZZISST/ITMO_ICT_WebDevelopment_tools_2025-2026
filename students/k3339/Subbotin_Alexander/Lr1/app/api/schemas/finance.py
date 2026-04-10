@@ -1,8 +1,17 @@
-from datetime import datetimefrom decimal import Decimal
+from datetime import datetime
+from decimal import Decimal
 from enum import Enum
-from typing import Any, Dict, List, Optional
+from typing import List, Optional
 
 from pydantic import BaseModel, Field, computed_field, validator
+
+
+class AnalysisStatus(str, Enum):
+    """Статусы анализа"""
+
+    PENDING = "pending"
+    COMPLETED = "completed"
+    FAILED = "failed"
 
 
 class CategoryType(str, Enum):
@@ -252,31 +261,6 @@ class FinancialAnalysisResponse(FinancialAnalysisBase):
     class Config:
         from_attributes = True
 
-# Summary Schemas
-class CategorySpendingSummary(BaseModel):
-    """Сводка трат по категории"""
-
-    category: CategoryResponse
-    budgeted: Decimal
-    spent: Decimal
-    remaining: Decimal
-    percentage_used: float
-
-
-class FinancialSummary(BaseModel):
-    """Общая финансовая сводка"""
-
-    period_start: datetime
-    period_end: datetime
-    total_income: Decimal
-    total_expenses: Decimal
-    total_budget: Decimal
-    savings: Decimal
-    savings_rate: float
-    categories: List[CategorySpendingSummary]
-    top_expenses: List[TransactionResponse]
-
-
 class PlannedVsActualSummary(BaseModel):
     """сводка план/факт по транзакциям"""
 
@@ -287,87 +271,3 @@ class PlannedVsActualSummary(BaseModel):
     transactions: List[TransactionResponse]
 
 
-class FinancialInsightResponse(BaseModel):
-    """Финансовая аналитика"""
-
-    insight_type: str
-    description: str
-    impact_level: str  # low, medium, high
-    suggested_action: Optional[str] = None
-    data_points: Dict[str, Any] = {}
-
-
-class AnalysisResponse(BaseModel):
-    """Ответ анализа"""
-
-    period_start: datetime
-    period_end: datetime
-    insights: List[FinancialInsightResponse]
-    recommendations: List[FinancialInsightResponse]
-    generated_at: datetime
-
-
-class MonthlyInsightResponse(BaseModel):
-    """Месячная аналитика"""
-
-    month: int
-    year: int
-    insights: List[FinancialInsightResponse]
-    summary: str
-    trends: Dict[str, Any] = {}
-
-    # legacy notebook schemas removed
-    next_month_goals: Optional[str] = Field(None, max_length=1000)
-
-
-# Summary Schemas
-
-
-class BudgetSummaryResponse(BaseModel):
-    """Сводка бюджета"""
-
-    total_budgeted: Decimal
-    total_spent: Decimal
-    remaining: Decimal
-    utilization_rate: float
-    categories_summary: List[Dict[str, Any]]
-    over_budget_categories: List[str]
-
-
-class TransactionsSummaryResponse(BaseModel):
-    """Сводка транзакций"""
-
-    total_transactions: int
-    total_income: Decimal
-    total_expenses: Decimal
-    average_transaction: Decimal
-    largest_expense: Optional[TransactionResponse]
-    most_frequent_category: Optional[str]
-    period_start: datetime
-    period_end: datetime
-
-
-class ExpenseByCategoryResponse(BaseModel):
-    """Расходы по категориям"""
-
-    category_name: str
-    category_type: CategoryType
-    total_amount: Decimal
-    percentage_of_total: float
-    transaction_count: int
-    average_amount: Decimal
-    budget_allocated: Optional[Decimal]
-    budget_remaining: Optional[Decimal]
-
-
-class GoalsProgressResponse(BaseModel):
-    """Прогресс по целям"""
-
-    goal_id: int
-    goal_name: str
-    target_amount: Decimal
-    current_amount: Decimal
-    progress_percentage: float
-    days_remaining: Optional[int]
-    projected_completion: Optional[datetime]
-    on_track: bool
