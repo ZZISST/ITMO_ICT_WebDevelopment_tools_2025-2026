@@ -15,7 +15,6 @@ from app.core.db.models.finance import (
     Category,
     CategoryType,
     FinancialGoal,
-    NotebookType,
     Transaction,
     TransactionType,
 )
