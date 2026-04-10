@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Лабораторная работа 1. Сервис управления личными финансами - My Docs</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">My Docs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">Welcome to MkDocs</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Lr1</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">Лабораторная работа 1. Сервис управления личными финансами</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Lr2</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../Lr2/main/" class="dropdown-item">Main</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Lr3</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../Lr3/main/" class="dropdown-item">Main</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../.." class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../../Lr2/main/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#1" class="nav-link">Лабораторная работа 1. Сервис управления личными финансами</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#_1" class="nav-link">Цель</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_2" class="nav-link">Стек технологий</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_3" class="nav-link">Структура проекта</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_4" class="nav-link">Модель данных</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#api" class="nav-link">API</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_8" class="nav-link">Аутентификация</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#alembic" class="nav-link">Миграции (Alembic)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#api_1" class="nav-link">Примеры работы API</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_12" class="nav-link">Вывод</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="1">Лабораторная работа 1. Сервис управления личными финансами</h1>
+<h2 id="_1">Цель</h2>
+<p>Разработать серверное приложение на <strong>FastAPI</strong> для управления личными финансами: учёт доходов и расходов, бюджетирование по категориям, финансовые цели и аналитика. Реализовать аутентификацию пользователей через JWT.</p>
+<hr />
+<h2 id="_2">Стек технологий</h2>
+<table>
+<thead>
+<tr>
+<th>Компонент</th>
+<th>Технология</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Фреймворк</td>
+<td>FastAPI</td>
+</tr>
+<tr>
+<td>ORM</td>
+<td>SQLAlchemy 2.0 (Mapped, mapped_column)</td>
+</tr>
+<tr>
+<td>База данных</td>
+<td>PostgreSQL 17</td>
+</tr>
+<tr>
+<td>Миграции</td>
+<td>Alembic</td>
+</tr>
+<tr>
+<td>Аутентификация</td>
+<td>JWT (python-jose) + bcrypt</td>
+</tr>
+<tr>
+<td>Контейнеризация</td>
+<td>Docker + Docker Compose</td>
+</tr>
+<tr>
+<td>Пакетный менеджер</td>
+<td>uv</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_3">Структура проекта</h2>
+<pre><code>app/
+├── main.py                  # Точка входа, регистрация роутеров
+├── api/
+│   ├── routers/
+│   │   ├── auth.py          # Регистрация, логин, профиль
+│   │   ├── budget.py        # Бюджеты и категории
+│   │   ├── transactions.py  # Транзакции
+│   │   └── analysis.py      # Финансовые цели и анализ
+│   └── schemas/
+│       ├── user.py          # Pydantic-схемы пользователя
+│       └── finance.py       # Pydantic-схемы финансов
+├── core/
+│   ├── database.py          # Движок SQLAlchemy, сессия
+│   ├── settings/
+│   │   ├── config.py        # Настройки приложения
+│   │   └── security.py      # JWT, хэширование паролей
+│   └── db/
+│       ├── models/
+│       │   ├── user.py      # Модели User, UserProfile
+│       │   └── finance.py   # Модели финансовых сущностей
+│       └── crud/
+│           ├── user/        # CRUD операции с пользователями
+│           └── finance/     # CRUD операции с финансами
+alembic/                     # Миграции
+docker-compose.yaml
+</code></pre>
+<hr />
+<h2 id="_4">Модель данных</h2>
+<h3 id="_5">Таблицы</h3>
+<table>
+<thead>
+<tr>
+<th>Таблица</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>users</code></td>
+<td>Пользователи системы</td>
+</tr>
+<tr>
+<td><code>user_profiles</code></td>
+<td>Профиль пользователя (дата рождения)</td>
+</tr>
+<tr>
+<td><code>categories</code></td>
+<td>Категории доходов/расходов</td>
+</tr>
+<tr>
+<td><code>budgets</code></td>
+<td>Бюджеты пользователя по категориям</td>
+</tr>
+<tr>
+<td><code>transactions</code></td>
+<td>Транзакции (доходы и расходы)</td>
+</tr>
+<tr>
+<td><code>financial_goals</code></td>
+<td>Финансовые цели</td>
+</tr>
+<tr>
+<td><code>financial_analyses</code></td>
+<td>Результаты финансового анализа</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_6">Связи</h3>
+<ul>
+<li><strong>User → UserProfile</strong>: one-to-one</li>
+<li><strong>User → Budget</strong>: one-to-many (один пользователь — много бюджетов)</li>
+<li><strong>User → Transaction</strong>: one-to-many</li>
+<li><strong>User → FinancialGoal</strong>: one-to-many</li>
+<li><strong>User → FinancialAnalysis</strong>: one-to-many</li>
+<li><strong>Category → Budget</strong>: one-to-many (одна категория — в нескольких бюджетах)</li>
+<li><strong>Category → Transaction</strong>: one-to-many</li>
+</ul>
+<p>!!! note "Ассоциативная сущность"
+    <code>Budget</code> связывает <code>User</code> и <code>Category</code> и содержит собственные поля: <code>amount</code>, <code>period_start</code>, <code>period_end</code>, <code>is_active</code> — характеристики самой связи, а не только ссылки.</p>
+<h3 id="_7">Ключевые модели</h3>
+<pre><code class="language-python">class Budget(Base):
+    __tablename__ = &quot;budgets&quot;
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    user_id: Mapped[int] = mapped_column(ForeignKey(&quot;users.id&quot;, ondelete=&quot;CASCADE&quot;))
+    category_id: Mapped[int] = mapped_column(ForeignKey(&quot;categories.id&quot;, ondelete=&quot;CASCADE&quot;))
+    amount: Mapped[Decimal] = mapped_column(Numeric(10, 2))
+    period_start: Mapped[datetime] = mapped_column(DateTime)
+    period_end: Mapped[datetime] = mapped_column(DateTime)
+    is_active: Mapped[bool] = mapped_column(Boolean, default=True)
+
+class Transaction(Base):
+    __tablename__ = &quot;transactions&quot;
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    user_id: Mapped[int] = mapped_column(ForeignKey(&quot;users.id&quot;, ondelete=&quot;CASCADE&quot;))
+    category_id: Mapped[int] = mapped_column(ForeignKey(&quot;categories.id&quot;, ondelete=&quot;CASCADE&quot;))
+    amount: Mapped[Decimal] = mapped_column(Numeric(10, 2))
+    transaction_type: Mapped[TransactionType] = mapped_column(SAEnum(TransactionType))
+    description: Mapped[str] = mapped_column(Text)
+    is_planned: Mapped[bool] = mapped_column(Boolean, default=False)
+    is_recurring: Mapped[bool] = mapped_column(Boolean, default=False)
+    transaction_date: Mapped[datetime] = mapped_column(DateTime)
+</code></pre>
+<hr />
+<h2 id="api">API</h2>
+<h3 id="auth">Аутентификация (<code>/auth</code>)</h3>
+<p><img alt="Authentication routes" src="../media/Authentication_routes.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Метод</th>
+<th>Путь</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POST</code></td>
+<td><code>/auth/register</code></td>
+<td>Регистрация пользователя</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><code>/auth/login</code></td>
+<td>Получение JWT-токена</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><code>/auth/me</code></td>
+<td>Информация о текущем пользователе</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><code>/auth/me/profile</code></td>
+<td>Профиль пользователя</td>
+</tr>
+<tr>
+<td><code>PUT</code></td>
+<td><code>/auth/me/profile</code></td>
+<td>Обновление профиля</td>
+</tr>
+<tr>
+<td><code>PUT</code></td>
+<td><code>/auth/me</code></td>
+<td>Обновление данных (username, email)</td>
+</tr>
+<tr>
+<td><code>PUT</code></td>
+<td><code>/auth/me/password</code></td>
+<td>Смена пароля</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><code>/auth/users</code></td>
+<td>Список пользователей (только admin)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="financebudget">Бюджеты и категории (<code>/finance/budget</code>)</h3>
+<p><img alt="Budget &amp; Categories routes" src="../media/Budget_%26_Categories_routes.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Метод</th>
+<th>Путь</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GET</code></td>
+<td><code>/finance/budget/categories</code></td>
+<td>Список категорий</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><code>/finance/budget/categories</code></td>
+<td>Создать категорию (admin)</td>
+</tr>
+<tr>
+<td><code>PUT</code></td>
+<td><code>/finance/budget/categories/{id}</code></td>
+<td>Обновить категорию (admin)</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><code>/finance/budget/categories/{id}</code></td>
+<td>Удалить категорию (admin)</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><code>/finance/budget/budgets</code></td>
+<td>Бюджеты пользователя</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><code>/finance/budget/budgets</code></td>
+<td>Создать бюджет</td>
+</tr>
+<tr>
+<td><code>PUT</code></td>
+<td><code>/finance/budget/budgets/{id}</code></td>
+<td>Обновить бюджет</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><code>/finance/budget/budgets/{id}</code></td>
+<td>Удалить бюджет</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><code>/finance/budget/budgets/summary</code></td>
+<td>Сводка по бюджетам</td>
+</tr>
+</tbody>
+</table>
+<h3 id="financetransactions">Транзакции (<code>/finance/transactions</code>)</h3>
+<p><img alt="Transactions routes" src="../media/Transactions_routes.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Метод</th>
+<th>Путь</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GET</code></td>
+<td><code>/finance/transactions/</code></td>
+<td>Список транзакций с фильтрацией</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><code>/finance/transactions/</code></td>
+<td>Создать транзакцию</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><code>/finance/transactions/{id}</code></td>
+<td>Транзакция по ID</td>
+</tr>
+<tr>
+<td><code>PUT</code></td>
+<td><code>/finance/transactions/{id}</code></td>
+<td>Обновить транзакцию</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><code>/finance/transactions/{id}</code></td>
+<td>Удалить транзакцию</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><code>/finance/transactions/stats/summary</code></td>
+<td>Статистика транзакций</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><code>/finance/transactions/stats/planned-vs-actual</code></td>
+<td>Сравнение план/факт</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><code>/finance/transactions/stats/top-expenses</code></td>
+<td>Топ расходов</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><code>/finance/transactions/quick/expense</code></td>
+<td>Быстрый расход</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><code>/finance/transactions/quick/income</code></td>
+<td>Быстрый доход</td>
+</tr>
+</tbody>
+</table>
+<h3 id="financeanalysis">Финансовые цели и анализ (<code>/finance/analysis</code>)</h3>
+<p><img alt="Financial Analysis &amp; Goals routes" src="../media/Financial_Analysis_%26_Goals_routes.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Метод</th>
+<th>Путь</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GET</code></td>
+<td><code>/finance/analysis/goals</code></td>
+<td>Финансовые цели</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><code>/finance/analysis/goals</code></td>
+<td>Создать цель</td>
+</tr>
+<tr>
+<td><code>PUT</code></td>
+<td><code>/finance/analysis/goals/{id}</code></td>
+<td>Обновить цель</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><code>/finance/analysis/goals/{id}</code></td>
+<td>Удалить цель</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><code>/finance/analysis/goals/{id}/progress</code></td>
+<td>Пополнить прогресс цели</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><code>/finance/analysis/analyses</code></td>
+<td>История анализов</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><code>/finance/analysis/analyses</code></td>
+<td>Запустить анализ</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_8">Аутентификация</h2>
+<p>Реализована вручную без сторонних auth-библиотек.</p>
+<p><strong>Регистрация</strong> — пароль хэшируется через <code>bcrypt</code> перед сохранением:</p>
+<pre><code class="language-python">def get_password_hash(password: str) -&gt; str:
+    return pwd_context.hash(password)
+</code></pre>
+<p><strong>Логин</strong> — возвращает JWT-токен:</p>
+<pre><code class="language-python">def create_access_token(data: dict, expires_delta: timedelta) -&gt; str:
+    to_encode = data.copy()
+    expire = datetime.utcnow() + expires_delta
+    to_encode.update({&quot;exp&quot;: expire})
+    return jwt.encode(to_encode, settings.SECRET_KEY, algorithm=settings.ALGORITHM)
+</code></pre>
+<p><strong>Защищённые эндпоинты</strong> — зависимость <code>get_current_user</code> декодирует токен из заголовка <code>Authorization: Bearer &lt;token&gt;</code> и возвращает текущего пользователя.</p>
+<p><img alt="Available authorizations" src="../media/Available_authorizations.png" /></p>
+<hr />
+<h2 id="alembic">Миграции (Alembic)</h2>
+<p>Настроена асинхронная работа с PostgreSQL. Миграции применяются автоматически при старте контейнера:</p>
+<pre><code class="language-bash">uv run alembic upgrade head
+</code></pre>
+<p>Начальная миграция создаёт все таблицы, enum-типы (<code>categorytype</code>, <code>transactiontype</code>, <code>analysisstatus</code>) и индексы.</p>
+<hr />
+<h2 id="api_1">Примеры работы API</h2>
+<h3 id="_9">Получение информации о текущем пользователе</h3>
+<p><img alt="GET /auth/me" src="../media/get_current_user_info.png" /></p>
+<h3 id="_10">Создание бюджета</h3>
+<p><strong>Запрос:</strong></p>
+<p><img alt="POST /finance/budget/budgets — request" src="../media/post_create_budjet_req.png" /></p>
+<p><strong>Ответ:</strong></p>
+<p><img alt="POST /finance/budget/budgets — response" src="../media/post_create_budjet_res.png" /></p>
+<h3 id="_11">Обновление транзакции</h3>
+<p><strong>Запрос:</strong></p>
+<p><img alt="PUT /finance/transactions/{id} — request" src="../media/put_update_req.png" /></p>
+<p><strong>Ответ:</strong></p>
+<p><img alt="PUT /finance/transactions/{id} — response" src="../media/put_update_res.png" /></p>
+<hr />
+<h2 id="_12">Вывод</h2>
+<p>В ходе лабораторной работы разработано полноценное REST API приложение на FastAPI для управления личными финансами. Реализованы:</p>
+<ul>
+<li><strong>7 таблиц</strong> в PostgreSQL через SQLAlchemy ORM с типизированными моделями</li>
+<li><strong>CRUD-операции</strong> для всех сущностей с вложенными связанными объектами в ответах</li>
+<li><strong>JWT-аутентификация</strong> с хэшированием паролей (bcrypt), реализованная вручную</li>
+<li><strong>Система миграций</strong> Alembic с автоматическим применением при запуске</li>
+<li><strong>Разделение кода</strong> по слоям: модели, схемы, CRUD, роутеры</li>
+<li><strong>Docker Compose</strong> для запуска приложения с PostgreSQL</li>
+</ul></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
