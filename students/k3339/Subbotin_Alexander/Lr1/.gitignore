@@ -1,0 +1,38 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments
+.env
+.envrc
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# IDE
+.vscode/
+../../../../.claude/
+.idea/
+
+# Logs
+*.log
+
+# Prompts (generated documentation)
+/prompts
+
+# Redis
+*.rdb
+
+# OS
+.DS_Store

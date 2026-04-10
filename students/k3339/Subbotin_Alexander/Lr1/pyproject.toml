@@ -1,0 +1,39 @@
+[project]
+name = "mavrodi_wall"
+version = "0.1.0"
+description = "mavrodi_wall - a fastAPI finance wallet manager."
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "aiohttp==3.13.3",
+    "alembic==1.17.2",
+    "asyncpg==0.31.0",
+    "fastapi==0.128.0",
+    "fastapi-cache2==0.2.2",
+    "fastapi-cli==0.0.20",
+    "fastapi-pagination==0.15.4",
+    "fastapi_profiler==1.4.1",
+    "email-validator==2.3.0",
+    "httpx==0.28.1",
+    "SQLAlchemy==2.0.45",
+    "pydantic==2.12.5",
+    "pydantic-extra-types==2.10.3",
+    "pydantic-settings==2.11.0",
+    "pydantic_core==2.41.5",
+    "python-multipart==0.0.21",
+    "python-jose[cryptography]==3.5.0",
+    "pytest==8.3.5",
+    "pytest-asyncio==1.1.0",
+    "bcrypt==4.2.0",
+    "python-dotenv==1.2.1",
+    "testcontainers==4.12.0",
+    "uvicorn==0.40.0",
+    "cryptography==41.0.7",
+    "numpy==1.26.4",
+    "pandas==2.2.3",
+    "mkdocs-gen-files==0.6.0",
+    "mkdocs-literate-nav==0.6.2",
+    "mkdocs-material==9.7.1",
+    "mkdocstrings[python]==1.0.0",
+    "greenlet>=3.4.0",
+]
