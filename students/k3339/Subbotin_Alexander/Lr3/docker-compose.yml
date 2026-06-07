@@ -1,0 +1,101 @@
+services:
+  db:
+    image: postgres:17
+    container_name: lr3_db
+    restart: on-failure
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER}"]
+      interval: 5s
+      retries: 5
+    ports:
+      - "5433:5432"
+
+  redis:
+    image: redis:7-alpine
+    container_name: lr3_redis
+    restart: on-failure
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      retries: 5
+    ports:
+      - "6379:6379"
+
+  app:
+    container_name: lr3_app
+    build:
+      context: ./app
+      dockerfile: dockerfile
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    env_file:
+      - .env
+    environment:
+      - DB_SERVER=db
+      - REDIS_URL=redis://redis:6379/0
+      - PARSER_SERVICE_URL=http://parser:8001
+    ports:
+      - "8000:8000"
+
+  parser:
+    container_name: lr3_parser
+    build:
+      context: ./parser
+      dockerfile: dockerfile
+    depends_on:
+      db:
+        condition: service_healthy
+    env_file:
+      - .env
+    environment:
+      - DB_SERVER=db
+    ports:
+      - "8001:8001"
+
+  celery_worker:
+    container_name: lr3_celery_worker
+    build:
+      context: ./app
+      dockerfile: dockerfile
+    entrypoint: []
+    command: celery -A app.celery_app.celery worker --loglevel=info
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      parser:
+        condition: service_started
+    env_file:
+      - .env
+    environment:
+      - DB_SERVER=db
+      - REDIS_URL=redis://redis:6379/0
+      - PARSER_SERVICE_URL=http://parser:8001
+
+  celery_beat:
+    container_name: lr3_celery_beat
+    build:
+      context: ./app
+      dockerfile: dockerfile
+    entrypoint: []
+    command: celery -A app.celery_app.celery beat --loglevel=info
+    depends_on:
+      redis:
+        condition: service_healthy
+    env_file:
+      - .env
+    environment:
+      - REDIS_URL=redis://redis:6379/0
+
+volumes:
+  pgdata:

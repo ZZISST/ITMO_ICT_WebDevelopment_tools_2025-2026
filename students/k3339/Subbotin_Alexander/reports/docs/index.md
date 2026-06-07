@@ -10,4 +10,4 @@
 |---|------|--------|
 | [Лр 1](Lr1/main.md) | Сервис управления личными финансами (FastAPI + PostgreSQL) | ✅ Выполнена |
 | [Лр 2](Lr2/main.md) | Параллельное программирование (threading / multiprocessing / async) | ✅ Выполнена |
-| [Лр 3](Lr3/main.md) | Парсинг данных и фоновые задачи (Docker + Celery + Parser) | 🔄 В процессе |
+| [Лр 3](Lr3/main.md) | Парсинг данных и фоновые задачи (Docker + Celery + Parser) | ✅ Выполнена |
